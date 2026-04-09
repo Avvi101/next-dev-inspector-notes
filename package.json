@@ -1,6 +1,6 @@
 {
   "name": "next-dev-inspector-notes",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Development-only sticky notes and file hints for Next.js UI surfaces.",
   "type": "module",
   "main": "./dist/index.js",
@@ -13,23 +13,45 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "sideEffects": false,
   "license": "MIT",
+  "author": "Akshat <theworkersdesk@gmail.com>",
+  "homepage": "https://github.com/Avvi101/next-dev-inspector-notes#readme",
+  "bugs": {
+    "url": "https://github.com/Avvi101/next-dev-inspector-notes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avvi101/next-dev-inspector-notes.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run build"
+    "check": "npm run test && npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run check"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^24.5.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "typescript": "^5.9.3"
+    "jsdom": "^26.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "next": "^14.0.0 || ^15.0.0 || ^16.0.0",
@@ -41,6 +63,8 @@
     "devtools",
     "documentation",
     "debugging",
-    "team-collaboration"
+    "team-collaboration",
+    "developer-experience",
+    "vscode"
   ]
 }

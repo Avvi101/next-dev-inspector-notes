@@ -1,5 +1,9 @@
 # next-dev-inspector-notes
 
+[![npm version](https://img.shields.io/npm/v/next-dev-inspector-notes?color=cb3837&label=npm)](https://www.npmjs.com/package/next-dev-inspector-notes)
+[![CI](https://github.com/Avvi101/next-dev-inspector-notes/actions/workflows/ci.yml/badge.svg)](https://github.com/Avvi101/next-dev-inspector-notes/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Avvi101/next-dev-inspector-notes/actions/workflows/codeql.yml/badge.svg)](https://github.com/Avvi101/next-dev-inspector-notes/actions/workflows/codeql.yml)
+
 Add development-only sticky notes directly to your Next.js UI so teammates can see implementation context where it matters.
 
 ## Install
@@ -17,6 +21,13 @@ Design systems, dashboards, and feature-heavy apps often make it hard to answer 
 - Who should I ask before editing this widget?
 
 This package lets you leave those notes in the UI during development without shipping them to production.
+
+## Features
+
+- Renders only in development by default
+- Adds lightweight notes directly on top of real UI
+- Links notes to source files through `vscode://file`
+- Supports owners, endpoints, and team context for handoffs
 
 ## Example
 
@@ -65,4 +76,29 @@ Props:
 ### `createVSCodeHref`
 
 Build a `vscode://file/...` deep link manually if you want to render your own button.
+
+## Compatibility
+
+- Node.js `>=18`
+- Next.js `14`, `15`, and `16`
+- React `18` and `19`
+
+## Reliability
+
+- Unit-tested rendering and linking behavior
+- CI runs on every push and pull request
+- CodeQL and Dependabot configs are included for ongoing maintenance
+- Releases are prepared for npm trusted publishing with provenance
+
+## Security
+
+Please report security issues through GitHub private vulnerability reporting when enabled, or by following [SECURITY.md](SECURITY.md).
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for local development and release notes.
+
+## License
+
+MIT
 

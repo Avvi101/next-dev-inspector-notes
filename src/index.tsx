@@ -32,8 +32,6 @@ const DevNotesContext = React.createContext<DevNotesContextValue>({
   accentColor: '#f97316'
 });
 
-const isDev = process.env.NODE_ENV === 'development';
-
 export function DevNotesProvider({
   children,
   workspaceRoot,
@@ -71,12 +69,14 @@ export function DevNote({
   const [open, setOpen] = React.useState(false);
   const { workspaceRoot, accentColor } = React.useContext(DevNotesContext);
 
-  if (!isDev) {
+  if (!isDevelopmentEnvironment()) {
     return <>{children}</>;
   }
 
   const resolvedFilePath =
-    file && workspaceRoot && !file.startsWith('/') ? `${workspaceRoot}/${file}` : file;
+    file && workspaceRoot && !file.startsWith('/')
+      ? joinPathSegments(workspaceRoot, file)
+      : file;
 
   const placementStyle = getPlacementStyle(placement);
 
@@ -195,3 +195,10 @@ function trimFilePath(filePath: string): string {
   return parts.slice(Math.max(0, parts.length - 3)).join('/');
 }
 
+function isDevelopmentEnvironment(): boolean {
+  return process.env.NODE_ENV === 'development';
+}
+
+function joinPathSegments(root: string, filePath: string): string {
+  return `${root.replace(/\/+$/, '')}/${filePath.replace(/^\/+/, '')}`;
+}

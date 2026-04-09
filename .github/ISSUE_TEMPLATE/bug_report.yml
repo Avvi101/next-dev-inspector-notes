@@ -1,0 +1,31 @@
+name: Bug Report
+description: Report a reproducible problem with the package.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened and what did you expect instead?
+    validations:
+      required: true
+  - type: input
+    id: package_version
+    attributes:
+      label: Package Version
+      placeholder: 0.1.1
+    validations:
+      required: true
+  - type: input
+    id: next_version
+    attributes:
+      label: Next.js Version
+      placeholder: 15.0.0
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Share minimal reproduction steps or a repository link.
+    validations:
+      required: true
+
